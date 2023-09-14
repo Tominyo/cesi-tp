@@ -1,0 +1,56 @@
+form {
+    background-color: #252525;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+form button {
+    padding: 10px;
+    font-size: 20px;
+    background-color: #050138;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+input {
+    padding: 10px;
+    outline: none;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#allLodgings{
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #252525;
+}
+
+#allLodgings h3 {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#allLodgings div {
+    margin-bottom: 10px;
+}
+
+#allLodgings div input {
+    margin-right: 5px;
+}
+
+#allLodgings div input.Supprimer {
+    background-color: red;
+    color: white;
+}
+
+#allLodgings div input.Modifier {
+    background-color: yellow;
+}
