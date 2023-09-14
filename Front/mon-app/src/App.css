@@ -1,0 +1,631 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/**** GENERAL **/
+
+body {
+  margin: 0;
+  background-color: beige;
+}
+
+main {
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  height: 120px;
+  display: flex;
+  padding: 2px;
+  background-color:teal;
+
+  box-shadow:  3px 3px 3px 3px rgba(0,0,0,0.5)
+}
+
+header ul li {
+  list-style-type: none;
+}
+
+footer {
+  background-color:teal;
+  height: 100px;
+  border: solid 1px green;
+  padding: 2px;
+}
+
+footer p {
+  color: #ecf0f1;
+}
+
+h1,h2,h3,h4,h5,h6,a,li,p,input,label {
+  font-family: monospace;
+}
+
+h1 {
+  font-size: 2.2rem;
+  color:brown;
+}
+
+h2 {
+  font-size: 1.4;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+h4 {
+  font-size: 2.5rem;
+  color: goldenrod;
+}
+
+h5 {
+  font-size: 1.5rem;
+  color: darkolivegreen;
+}
+
+label {
+  margin: 8px;
+}
+
+footer p {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+section {
+  padding: 2px;
+}
+
+img {
+  object-fit: cover;
+}
+
+ul,
+li {
+list-style: none;
+text-decoration: none;
+margin: 0;
+padding: 0;
+}
+
+
+/**** IDS **/
+
+#presentation-section{
+  align-items: center;
+  text-align: center;
+}
+
+#rating-section{
+  align-items: center;
+  text-align: center;
+}
+
+#horaire-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#menu-section{
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#menu-section ul li {
+  list-style: none;
+}
+
+
+#horaire-section ul li {
+  list-style: none;
+}
+
+#team-section img {
+  border-radius: 20%;
+}
+
+#contact-section {
+  text-align: center;
+}
+
+#contact-section form {
+  text-align: -webkit-center;
+}
+
+#gallery-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+
+/* 
+* Always set the map height explicitly to define the size of the div element
+* that contains the map. 
+*/
+#map {
+  height: 100%;
+}
+
+/**** CLASS **/
+
+.horizontal-flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.horizontal-flex-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.vertical-flex-reversed {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.menu-container {
+  width: 70%;
+  height: 100%;
+}
+
+.menu {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.menu ul {
+  list-style-type: none;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.menu ul li {
+  width: 33%;
+  align-self: center;
+  text-align: center;
+}
+
+
+.menu ul li a {
+  font-size: 1.2rem;
+  color: azure;
+}
+
+.menu ul li a:hover {
+  font-size: 1.2rem;
+  color:brown;
+}
+
+
+.banner-image {
+  width: 90%;
+  height: 400px;
+  padding: 50px 0;
+}
+
+
+.logo-container {
+  width: 15% ;
+  height: 100%;
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.separator {
+  display: flex;
+  background-color:#202020;
+  width: 10%;
+  height: 5px;
+  align-self: center;
+  margin: 20px 0;
+}
+
+.center-v {
+  align-self: center;
+}
+
+.center-h {
+  text-align: center;
+}
+
+.checked {
+  color: orange;
+}
+
+.fa-star{
+  font-size: 3em !important;
+}
+
+.gallery-text-left{
+  float:left;
+  width:50%
+}
+
+
+.presentation {
+  align-items: center;
+  padding: 30px;
+  margin: 20px;
+  background-color:azure;
+  border: 1px solid beige;
+  box-shadow:  3px 3px 3px 3px rgba(0,0,0,0.5)
+}
+
+/**** COLORS **/
+.border-blue {
+  border: solid 1px blue;
+}
+
+.border-red {
+  border: solid 1px red;
+}
+
+.border-green {
+  border: solid 1px green;
+}
+
+.border-purple {
+  border: solid 1px purple;
+}
+
+.border-yellow {
+  border: solid 1px orange;
+}
+
+/**** DIMENSIONS **/
+.w-30 {
+  width: 30%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+/*##########
+#############
+############
+MENU 
+###########
+#########
+#########
+*/
+
+
+/*##################
+#################
+#############
+PORTFOLIO
+##############
+############
+############""*/
+.portfolio {
+  margin-top: 50px;
+      
+  }
+  .boxy{
+    position: relative;
+      display: block;
+    width: 40%;
+    height: 300px;
+    margin: 0 auto 2em;
+    padding: 0;
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow:0px 25px 50px rgba(0,0,0,.5);
+    overflow:hidden;
+    transition:all .4s ease;
+  }
+  .portfolio h3{
+    margin-bottom: 30px;
+    color: grey;
+    font-family:"Dancing Script";
+      font-size: 7em;
+  }
+  .figure{
+    color: white;
+    font-family: "Dancing Script";
+    font-size: 3em; 
+    padding: 5%;
+    
+    
+  }
+  .overlay_1{
+     width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    z-index:10;
+  }
+  .overlay_1:after {
+    content: '';
+    width: 200%;
+    border-radius: 10px;
+    height: 100%;
+    background-color: #202020;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: -10;
+    left: 0;
+    transition: all .3s ease;
+  }
+  .overlay-text {
+      position: relative;
+      top:-200px;
+      margin-bottom:1em;
+      margin-top:3em;
+    font-family: "Montserrat";
+      font-size: 2.25em;
+      font-weight: 200;
+      color:white;
+      text-align: center;
+      letter-spacing:5px;
+      transition:all .3s cubic-bezier(.3, 0, 0, 1.3);
+    }
+  .overlay-link{
+    position: relative;
+    display: block;
+    width: 60%;
+    top: 220px;
+    padding: 10px;
+    margin: 0 auto;
+    font-family: "Montserrat";
+    color: white;
+    letter-spacing: 3px;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 3px;
+    font-size: 1.25em;
+    transition: all 0.3s cubic-bezier(0.3, 0, 0, 1.3);
+  }
+  .overlay-link:hover{
+    background-color: white;
+        color:#202020;
+    text-decoration: none;
+  }
+  
+  
+  .boxy:hover .overlay-text {
+    top: 0;
+  }
+  .boxy:hover .overlay-link{
+    top: 0;
+  }
+  .boxy:hover .overlay_1:after {
+    opacity: .75;
+  }
+  
+  
+  
+  .box_1{
+    background-image: url('http://localhost:1337/uploads/spiceandsugar_20e254873f.jpg?updated_at=2022-12-30T15:12:04.822Z');
+  }
+  
+  .box_2{
+     background-image: url('http://localhost:1337/uploads/hippopotamus_51aaca4312.jpg?updated_at=2022-12-30T15:12:05.212Z');
+  }
+  .box_3{
+     background-image: url('http://localhost:1337/uploads/kayali_863e7a2f11.jpg?updated_at=2022-12-30T15:12:05.145Z');
+  }
+  .box_4{
+     background-image: url('http://localhost:1337/uploads/theyellow_5ac09bf8d9.jpg?updated_at=2022-12-30T15:17:27.429Z');
+  }
+  
+
+  /*################## CAROUSEL ##################*/
+  :root {
+      --color-text: #2c3e50;
+      --color-text-light: #34495e;
+      --color-white: #ecf0f1;
+      --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+      --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+      --line: 1px solid var(--color-grey-light-2);
+    }
+    
+    button {
+      padding: 0;
+      margin: 0;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-white);
+      cursor: pointer;
+      position: absolute;
+      color: var(--color-white);
+      font-size: 3rem;
+      transform: translateY(-50%);
+      top: 50%;
+    }
+    
+    .carousel {
+      width: 50vw;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    
+    .carousel_slider {
+      width: 100%;
+      height: 87%;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .content_inner_slider {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+    
+    .img {
+      min-width: 50vw;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .prev_button {
+      left: 0;
+    }
+    
+    .next_button {
+      right: 0;
+    }
+    
+    .dots {
+      display: flex;
+      margin: 1rem 0;
+    }
+    
+    .dot {
+      width: 1rem;
+      height: 1rem;
+      border: 1px solid var(--color-text-light);
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    
+    .form {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+    }
+    
+    .auto_slide {
+    }
+
+    /* css list with numeber circle background -------------- */
+.numberlist{
+width:450px;
+
+}
+.numberlist ol{
+            counter-reset: li;
+      list-style: none;
+      *list-style: decimal;
+      font: 15px 'trebuchet MS', 'lucida sans';
+      padding: 0;
+      margin-bottom: 4em;
+
+}
+.numberlist ol ol{
+      margin: 0 0 0 2em;
+    }
+
+.numberlist a{
+      position: relative;
+      display: block;
+      padding: .4em .4em .4em 2em;
+      *padding: .4em;
+      margin: .5em 0;
+      background: #FFF;
+      color: #444;
+      text-decoration: none;
+      -moz-border-radius: .3em;
+      -webkit-border-radius: .3em;
+      border-radius: .3em;
+    }
+
+.numberlist a:hover{
+      background: #cbe7f8;
+      text-decoration:underline;
+    }
+.numberlist a:before{
+      content: counter(li);
+      counter-increment: li;
+      position: absolute;	
+      left: -1.3em;
+      top: 50%;
+      margin-top: -1.3em;
+      background: #87ceeb;
+      height: 2em;
+      width: 2em;
+      line-height: 2em;
+      border: .3em solid #fff;
+      text-align: center;
+      font-weight: bold;
+      -moz-border-radius: 2em;
+      -webkit-border-radius: 2em;
+      border-radius: 2em;
+      color:#FFF;
+    }
+
+/* End css list with numeber circle background -------------- */
+    
+
+

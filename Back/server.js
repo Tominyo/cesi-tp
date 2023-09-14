@@ -82,7 +82,15 @@ app.get('/api/logements', async (req, res) => {
         options: true,
       },
     });
-    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.writeHead(200, 
+      { 
+        'Content-Type': 'application/json',
+        "Access-Control-Allow-Origin" : "http://localhost:3000",
+        "Access-Control-Allow-Credentials" : true,
+        "Access-Control-Allow-Methods" : "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers" : "Origin, Content-Type, Accept"
+      }
+      );
     res.end(JSON.stringify(lodgings));
   } catch (error) {
     console.error(error);
@@ -265,7 +273,7 @@ app.post('/auth/login', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Serveur en écoute sur le port ${PORT}`);
 });  
