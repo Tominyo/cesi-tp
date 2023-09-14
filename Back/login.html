@@ -9,19 +9,13 @@
     <div class="container">
         <div class="login-page">
           <div class="form">
-            <form action="http://localhost:3000/login2" method="post">
-                <div class="register-form">
-                    <input type="text" placeholder="Name">
-                    <input type="password" placeholder="Password">
-                    <input type="email" placeholder="Email">
-                    <button>Create</button>
-                    <p class="message">Already registered? <a href="#">Sign In</a></p>
-                  </div>
+            <form id="form-container" action="http://localhost:3000/auth/login" method="post">
                   <div class="login-form">
                     <input type="email" placeholder="E-mail" id="email" name="email">
                     <input type="password" placeholder="Password" id="password" name="password">
                     <button type ="submit">Login</button>
-                    <p class="message">Not registered? <a href="#">Create an Account</a></p>
+                    <button id="show-register"><p class="message">Not registered? Create an Account</p></button>
+
                   </div>
             </form>
           </div>
@@ -37,6 +31,8 @@
         </div>
       
       </footer>
+
+      <script src="/js/login.js"></script>
 </body>
 
 </html>

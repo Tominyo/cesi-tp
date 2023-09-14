@@ -40,8 +40,9 @@ model Reservation {
 }
 
 model Color {
-  id    Int    @id @default(autoincrement())
-  name  String
+  id    String @id
+  name  String @unique
+  hex   String @default("#FFFFFF")
   // Ajoutez d'autres champs de couleur si nécessaire
 
   // Relation OneToMany avec les logements
@@ -49,13 +50,16 @@ model Color {
 }
 
 model Option {
-  id    Int    @id @default(autoincrement())
-  name  String
+  id    String @id
+  name  String @unique
+  isActive Boolean @default(false)
   // Ajoutez d'autres champs d'option si nécessaire
 
   // Relation ManyToMany avec les réservations
   //reservations Reservation[]
-  lodging Lodging[]
+  //lodgings OptionsInLodgings[]
+  lodgings Lodging[]
+
 }
 
 model Lodging {
@@ -65,9 +69,24 @@ model Lodging {
 
   // Relation OneToOne avec la réservation
   reservation Reservation?
+
   // Relation ManyToMany avec les options
-  options    Option[]
+  // options OptionsInLodgings[]
+  options Option[]
+
   // Relation ManyToOne avec la couleur
-  colorId    Int
+  colorId    String
   color      Color    @relation(fields: [colorId], references: [id])
+
 }
+
+//model OptionsInLodgings {
+//  lodging       Lodging     @relation(fields: [lodgingId], references: [id])
+//  lodgingId     Int // relation scalar field (used in the `@relation` attribute above)
+//  option        Option @relation(fields: [optionId], references: [id])
+//  optionId      Int // relation scalar field (used in the `@relation` attribute above)
+//  assignedAt DateTime @default(now())
+//  assignedBy String
+
+// @@id([lodgingId, optionId])
+//}

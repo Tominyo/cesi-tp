@@ -67,7 +67,7 @@ body{
     text-decoration: none;
 }
 .form .register-form {
-    display: none;
+    /*display: none;*/
 }
 
 /*Footer*/
@@ -89,4 +89,12 @@ body{
 #footer div a span{
     color: var(--fourth-color);
     font-weight: 600;
+}
+
+.hidden {
+    display: none;
+}
+
+#show-login, #show-register {
+    background-color: transparent;
 }

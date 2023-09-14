@@ -21,13 +21,15 @@ CREATE TABLE "Reservation" (
 -- CreateTable
 CREATE TABLE "Color" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "name" TEXT NOT NULL
+    "name" TEXT NOT NULL,
+    "hex" TEXT NOT NULL DEFAULT '#FFFFFF'
 );
 
 -- CreateTable
 CREATE TABLE "Option" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "name" TEXT NOT NULL
+    "name" TEXT NOT NULL,
+    "isActive" BOOLEAN NOT NULL DEFAULT false
 );
 
 -- CreateTable
