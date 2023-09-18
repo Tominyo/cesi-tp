@@ -9,14 +9,14 @@ showLoginBtn.addEventListener("click", showLogin);
 
 function showRegister(event) {
     event.preventDefault();
-    formContainer.setAttribute("action", "http://localhost:3000/auth/register")
+    formContainer.setAttribute("action", "http://localhost:3001/auth/register")
     loginForm.classList.add("hidden");
     registerForm.classList.remove("hidden");
 }
 
 function showLogin(event) {
     event.preventDefault();
-    formContainer.setAttribute("action", "http://localhost:3000/auth/   login2")
+    formContainer.setAttribute("action", "http://localhost:3001/auth/login2")
     registerForm.classList.add("hidden");
     loginForm.classList.remove("hidden");
 }

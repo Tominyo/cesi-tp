@@ -3,6 +3,7 @@ var lodgings = []
 const validateButton = document.getElementById("validate")
 
 validateButton.addEventListener("click", addLodging);
+
 showAllLodgings();
 
 function updateOrDeleteLodging() {
@@ -97,7 +98,7 @@ function showAllLodgings() {
            for(const [key, value] of Object.entries(newInputs))
            {
                value.setAttribute("type", "text");
-               value.setAttribute("id", `${key}OfLodging${lodging.id}`)
+               value.setAttribute("id", `${key}OfLodging-${lodging.id}`)
    
                key === "Nom" && value.setAttribute("value", lodging.name)
                key === "Couleur" && value.setAttribute("value", lodging.color.name)
@@ -194,19 +195,30 @@ function showAllLodgings() {
 
             // Ensuite on crée sa checkbox
                value.setAttribute("type", "checkbox");
-               value.setAttribute("id", `${key}OfLodging${lodging.id}`)
-   
-               key === "TV" && value.setAttribute("value", false)
-               key === "Internet" && value.setAttribute("value", false)
-
+               value.setAttribute("id", `Checkbox${key}OfLodging-${lodging.id}`)
+            
                console.log("HELOOOOOOOo")
                console.log(lodging.options)
                    
                if(lodging.options.length > 0)
                {
                 lodging.options.forEach(option => {
-                    if(option.id === "tv")
-                    value.checked = true;
+
+                    if(key === "TV")
+                    {
+                        console.log("option.id:" + option.id)
+                        if(option.id === "tv")
+                        value.checked = true;
+                    }
+
+                    if(key === "Internet")
+                    {
+                        console.log("option.id:" + option.id)
+                        if(option.id === "internet")
+                        value.checked = true;
+                    }
+
+
                 });
 
           
@@ -225,7 +237,7 @@ function showAllLodgings() {
            {
                value.setAttribute("type", "button");
                value.setAttribute("class", key);
-               value.setAttribute("id", lodging.id);
+               value.setAttribute("id", `Button${key}Of-${lodging.id}`);
                value.setAttribute("value", key);
    
                newDiv.appendChild(value)
@@ -244,22 +256,23 @@ function showAllLodgings() {
 
 function deleteLodging(id) {
     console.log("Delete Lodging")
+    //const buttonId = id.charAt(id.length - 1)
+    const buttonId = id.split('-')[1]
+
     lodgings.forEach((lodging) => {
         //const userPositionInArray = lodgings.indexOf(lodging);    
         //lodging.id === parseInt(id) && lodgings.splice(userPositionInArray, 1);
-
-        if(lodging.id === parseInt(id))
+        console.log("SKRRRRTss")
+        console.log(lodging.id)
+        console.log(id.charAt(id.length - 1))
+        if(lodging.id === parseInt(buttonId))
         {
-            fetch(`/api/logements/${id}`, {
-                method: 'delete'
-            }).then((response) => {
-                showAllLodgings();
-               console.log(response)
-            })
-           .catch(function(err) {
-                // Error :(
-                console.log(err)
+            console.log("REUSSI")
+            deleteData(`api/logements/${buttonId}`).then((data) => {
+                console.log(data); // JSON data parsed by `data.json()` call
+                showAllLodgings()
             });
+
         }
 
     })
@@ -267,29 +280,65 @@ function deleteLodging(id) {
 }
 
 function editLodging(id) {
+
+    //const buttonId = id.charAt(id.length - 1)
+    const buttonId = id.split('-')[1]
+
     console.log("Edit Lodging")
+    console.log(`NomOfLodging-${buttonId}`)
 
     const newInputs = {
-        nom: document.getElementById(`NomOfLodging${id}`).value,
-        //color: document.getElementById(`CouleurOfLodging${id}`).value,
+        nom: document.getElementById(`NomOfLodging-${buttonId}`).value,
+                                      
+        //color: document.getElementById(`CouleurOfLodging${buttonId}`).value,
         //options: document.getElementById(`optionsOfLodging${id}`).value
     }
 
+    const newColorInput = document.querySelector(`input[name=radiogroup-${buttonId}]:checked`)
+
+    //const newOptions = document.querySelectorAll(`input[type=checkbox]`)
+    const tvOption = document.getElementById(`CheckboxTVOfLodging-${buttonId}`).checked
+    const internetOption = document.getElementById(`CheckboxInternetOfLodging-${buttonId}`).checked
+    let listOptions = []
+
+    if(tvOption)
+    {
+        listOptions.push({"id": "tv"})
+    }
+
+    if(internetOption)
+    {
+        listOptions.push({"id": "internet"})
+    }
+
+    const options = {
+        "TV": tvOption,
+        "Internet": internetOption
+    }
+
+    console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSs")
+    console.log(listOptions)
+    console.log(newColorInput.value) 
     lodgings.forEach((lodging) => {
-        if(lodging.id === parseInt(id))
+
+        if(lodging.id === parseInt(buttonId))
         {
             //lodging.nom = newInputs.nom;
             //lodging.color = newInputs.color;
             //lodging.options = newInputs.options;
 
-            putData(`api/logements/${id}`, { name: newInputs.nom, colorId: parseInt(newInputs.color) }).then((data) => {
+            putData(`api/logements/${buttonId}`, { name: newInputs.nom, colorId: newColorInput.value, options: listOptions }).then((data) => {
+                console.log("ACT77777")
+                console.log(options)
                 console.log(data); // JSON data parsed by `data.json()` call
-                showAllLodgings()
+
+                // On Actualise dans le then()
+                showAllLodgings();
             });
         }
     })
 
-    showAllLodgings();
+    //showAllLodgings();
 }
 
 // Example POST method implementation:
@@ -318,7 +367,7 @@ async function putData(url = "", data = {}) {
       method: "PUT", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
       cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: "same-origin", // include, *same-origin, omit
+      credentials: "include", // include, *same-origin, omit
       headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -343,6 +392,25 @@ async function putData(url = "", data = {}) {
         "Access-Control-Allow-Credentials" : true,
         "Access-Control-Allow-Methods" : "GET, POST, OPTIONS",
         "Access-Control-Allow-Headers" : "Origin, Content-Type, Accept"
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      redirect: "follow", // manual, *follow, error
+      referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+      body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+  }
+
+    // Example PUT method implementation:
+async function deleteData(url = "", data = {}) {
+    // Default options are marked with *
+    const response = await fetch(url, {
+      method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       redirect: "follow", // manual, *follow, error
