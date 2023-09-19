@@ -242,7 +242,7 @@ router.post('/auth/register', async (req, res) => {
 // Route de connexion (POST /login)
 router.post('/auth/login', authController.login_post);
 
-router.post('/auth/logout', authController.logout_post)
+router.get('/auth/logout', authController.logout_get)
 
 
 module.exports = router

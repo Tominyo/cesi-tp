@@ -64,7 +64,7 @@ model Option {
 
 model Lodging {
   id        Int      @id @default(autoincrement())
-  name      String
+  name      String?
   // Ajoutez d'autres champs de logement si nécessaire
 
   // Relation OneToOne avec la réservation

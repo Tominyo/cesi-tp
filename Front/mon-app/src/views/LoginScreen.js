@@ -92,7 +92,7 @@ function LoginScreen(props) {
     <div className="form">
       <form action="http://localhost:3001/auth/login" method="post">
         <div className="input-container">
-          <label>Username </label>
+          <label>E-mail </label>
           <input type="text" name="email" id="email" required />
           {renderErrorMessage("uname")}
         </div>
@@ -112,14 +112,14 @@ function LoginScreen(props) {
     <>
     <header>
     <nav class="menu">
-        <a href="/"><img src="/img/logo.png" width="100" alt="Logo du site"/></a>
+        <a href="/"><img src="/img/logo.png" width="150" alt="Logo du site"/></a>
     </nav>
 </header>
 
     <main>
       <div className="app">
         <div className="login-form">
-          <div className="title">Sign In</div>
+          <div className="title">Connexion</div>
           {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
         </div>
       </div>
@@ -127,7 +127,7 @@ function LoginScreen(props) {
     </main>
 
     <footer>
-      <p>LesMeilleursLogements - Tout droits réservés ©</p>
+      <p>LogementFacile - Tout droits réservés ©</p>
     </footer>
 
 </>

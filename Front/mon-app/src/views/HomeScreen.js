@@ -102,15 +102,15 @@ export default function HomeScreen(props) {
       //headers.append('Accept', 'application/json');
       //headers.append('Authorization', 'Basic ' + base64.encode(username + ":" +  password));
       //headers.append('Origin','http://localhost:3001');
-      headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+      headers.append('Access-Control-Allow-Origin', 'http://localhost:3001');
       headers.append('Access-Control-Allow-Credentials', 'true');
       //https://api.publicapis.org/entries
 
       fetch(`http://localhost:3001/auth/logout`,{
-          mode: 'cors',
+          //mode: 'cors',
           credentials: 'include',
-          method: 'POST',
-          headers: headers
+          //method: 'POST',
+          //headers: headers
       })
       .then(res => res.json())
       .then(
@@ -169,7 +169,7 @@ export default function HomeScreen(props) {
             <li><a href="#contact">Contact</a></li>
             {
               isLogin 
-                ? <li><a href="#logout" onClick={logout}>Se déconnecter</a></li>
+                ? <li><a href="http://localhost:3001/auth/logout">Se déconnecter</a></li>
                 : <li><a href="#login" onClick={()=> {props.setCurrentPage("/Login")}}>Se Connecter</a></li>
             }
             
@@ -216,9 +216,9 @@ export default function HomeScreen(props) {
                                 name="radio-buttons-group"
                                 onChange={onRadioValueChange}
                               >
-                                <FormControlLabel value="huey" control={<Radio />} label="Huey" />
-                                <FormControlLabel value="dewey" control={<Radio />} label="Dewey" />
-                                <FormControlLabel value="saumon" control={<Radio />} label="saumon" />
+                                <FormControlLabel value="huey" control={<Radio />} label="" className='huey' />
+                                <FormControlLabel value="dewey" control={<Radio />} label="" className='dewey'/>
+                                <FormControlLabel value="saumon" control={<Radio />} label="" className='saumon'/>
                                 <FormControlLabel value="all" control={<Radio />} label="Tous" />
                               </RadioGroup>
                             </FormControl>
@@ -249,7 +249,7 @@ export default function HomeScreen(props) {
     </main>
 
     <footer>
-      <p>LesMeilleursLogements - Tout droits réservés ©</p>
+      <p>LogementFacile - Tout droits réservés ©</p>
     </footer>
 
 </>

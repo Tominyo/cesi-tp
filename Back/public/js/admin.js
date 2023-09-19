@@ -169,8 +169,10 @@ function showAllLodgings() {
                value.setAttribute("name", `radiogroup-${lodging.id}`);
    
                 newDivContainer.appendChild(newDivColor)
-                newDivContainer.appendChild(label)
                 newDivContainer.appendChild(value)
+                
+                //le nom des couleurs
+                //newDivContainer.appendChild(label)
 
                newDiv.appendChild(newDivContainer)
                document.getElementById("allLodgings").appendChild(newDiv);

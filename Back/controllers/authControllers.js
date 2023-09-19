@@ -101,16 +101,18 @@ module.exports.login_post = async (req, res, next) => {
       }
 }
 
-module.exports.logout_post = (req, res, next) => {
+module.exports.logout_get = (req, res, next) => {
     res.cookie("jwt", "", { maxAge: 1});
     res.cookie("username", "", {maxAge: 1});
 
+    /*
     res.header("Credentials",'include');
     res.header('Access-Control-Expose-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
     res.header("Access-Control-Allow-Credentials", true);
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    */
 
     res.redirect("http://localhost:3000/");
     //next()
